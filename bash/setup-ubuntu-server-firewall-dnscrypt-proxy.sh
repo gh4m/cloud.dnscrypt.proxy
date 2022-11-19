@@ -10,8 +10,8 @@ sysctl -p
 ufw --force reset
 ufw --force enable
 ufw logging low
-ufw default allow routed
 ufw allow proto tcp from 0.0.0.0/0 to any port ssh
+ufw allow proto tcp from 0.0.0.0/0 to any port https
 ufw status verbose
 
 ## setup files for homeip cron script

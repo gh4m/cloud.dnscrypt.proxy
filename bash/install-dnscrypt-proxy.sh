@@ -6,7 +6,7 @@
 
 ## setup as last in cloud userdata
 
-DNSCRYPT_PROXY_VER=2.1.1  ## https://github.com/DNSCrypt/dnscrypt-proxy/releases/latest
+DNSCRYPT_PROXY_VER=2.1.2  ## https://github.com/DNSCrypt/dnscrypt-proxy/releases/latest
 DNSCRYPT_PROXY_PATH=/opt/dnscrypt-proxy
 DNSCRYPT_PROXY_TOML_FILE_NAME=dnscrypt-proxy.toml
 DNSCRYPT_PROXY_TOML_FILE_PATH=${DNSCRYPT_PROXY_PATH}/${DNSCRYPT_PROXY_TOML_FILE_NAME}
@@ -39,7 +39,7 @@ sed -i "/cache_max_ttl =/c\cache_max_ttl = 3600" ${DNSCRYPT_PROXY_TOML_FILE_PATH
 sed -i "/cache_neg_min_ttl =/c\cache_neg_min_ttl = 15" ${DNSCRYPT_PROXY_TOML_FILE_PATH}
 sed -i "/cache_neg_min_ttl =/c\cache_neg_min_ttl = 120" ${DNSCRYPT_PROXY_TOML_FILE_PATH}
 
-if [ "${WG_CLOUDVPN_WGS1_DNSCRYPT_PROXY_BLOCKING}" == "YES" ]
+if [ "${SET_DNSCRYPT_PROXY_BLOCKING}" == "YES" ]
 then
   DNSCRYPT_PROXY_BLOCKLIST_SCRIPT=${DNSCRYPT_PROXY_PATH}/generate-domains-blocklist.py
   DNSCRYPT_PROXY_BLOCKLIST_DOMAIN_CONF=${DNSCRYPT_PROXY_PATH}/domains-blocklist.conf
